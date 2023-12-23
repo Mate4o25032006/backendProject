@@ -8,22 +8,24 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Ubicacion {
+public class Contacto {
     @Id
     //JPA genera la clave primaria con la anotación de abajo
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ubicacion_id")
-    private Long ubicacionId;
+    @Column(name = "contacto_id")
+    private Long contactoId;
 
     @Column(nullable = false, length = 50)
-    private String departamento;
+    private String nombre;
 
     @Column(nullable = false, length = 50)
-    private String ciudad;
+    private String telefono;
 
     @Column(nullable = false, length = 50)
-    private String direccion;
+    private String correo;
 
-    @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.PERSIST)
+    //UN registro de DatosContactoExterno está asociado a UN Aspirante
+    @OneToOne
+    @JoinColumn(name = "num_documento")
     private Aspirante aspirante;
 }

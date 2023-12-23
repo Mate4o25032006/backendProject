@@ -46,4 +46,25 @@ public class Aspirante {
     private String organizacion;
 
     private int suma;
+
+    //MUCHOS Aspirantes pertenecen a UN Programa
+    @ManyToOne(targetEntity = Programa.class)
+    private Programa programa;
+
+    //UN Aspirante está asociado a UNA Ubicación
+    @OneToOne
+    @JoinColumn(name = "ubicacion_id")
+    private Ubicacion ubicacion;
+
+    //UN Aspirante está asociado con UN registro de Educación
+    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    private Educacion datosEducativos;
+
+    //UN Aspirante está asociado con UN registro de Contacto Externo
+    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    private Contacto datosContactoExterno;
+
+    //UN Aspirante está asociado con UN registro de Socioeconomía
+    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    private SocioEconomia datosSocioeconomia;
 }
