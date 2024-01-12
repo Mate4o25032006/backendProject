@@ -56,6 +56,8 @@ public class Aspirante {
     @JoinColumn(name = "ubicacion_id")
     private Ubicacion ubicacion;
 
+
+    //Clave para las demás entidades
     //UN Aspirante está asociado con UN registro de Educación
     @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
     private Educacion datosEducativos;
