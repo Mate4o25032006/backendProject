@@ -52,21 +52,24 @@ public class Aspirante {
     private Programa programa;
 
     //UN Aspirante está asociado a UNA Ubicación
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ubicacion_id")
     private Ubicacion ubicacion;
 
 
     //Clave para las demás entidades
     //UN Aspirante está asociado con UN registro de Educación
-    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "educacion_id")
     private Educacion datosEducativos;
 
     //UN Aspirante está asociado con UN registro de Contacto Externo
-    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contacto_id")
     private Contacto datosContactoExterno;
 
     //UN Aspirante está asociado con UN registro de Socioeconomía
-    @OneToOne(mappedBy = "aspirante", cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "socioeconomico_id")
     private SocioEconomia datosSocioeconomia;
 }

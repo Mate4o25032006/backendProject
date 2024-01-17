@@ -1,5 +1,6 @@
 package com.backend.backendProject.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,7 +35,7 @@ public class SocioEconomia {
     private String ocupacion;
 
     //UN registro de SocioEconomia está asociado a UN Aspirante
-    @OneToOne
-    @JoinColumn(name = "num_documento")
+    @OneToOne(mappedBy = "datosSocioeconomia",   cascade = CascadeType.ALL)
+    @JsonIgnore
     private Aspirante aspirante;
 }

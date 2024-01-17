@@ -1,5 +1,6 @@
 package com.backend.backendProject.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,7 +26,7 @@ public class Contacto {
     private String correo;
 
     //UN registro de DatosContactoExterno está asociado a UN Aspirante
-    @OneToOne
-    @JoinColumn(name = "num_documento")
+    @OneToOne(mappedBy = "datosContactoExterno", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Aspirante aspirante;
 }

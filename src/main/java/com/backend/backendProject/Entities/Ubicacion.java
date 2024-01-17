@@ -1,5 +1,6 @@
 package com.backend.backendProject.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,5 +26,6 @@ public class Ubicacion {
     private String direccion;
 
     @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private Aspirante aspirante;
 }

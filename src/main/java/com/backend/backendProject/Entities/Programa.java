@@ -1,5 +1,6 @@
 package com.backend.backendProject.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +23,6 @@ public class Programa {
 
     //UN Programa puede tener MUCHOS Aspirantes
     @OneToMany(targetEntity = Aspirante.class, fetch = FetchType.LAZY, mappedBy = "programa")
+    @JsonIgnore
     private List<Aspirante> aspirantes;
 }

@@ -1,44 +1,95 @@
 package com.backend.backendProject.Services;
 
-import com.backend.backendProject.Entities.Aspirante;
-import com.backend.backendProject.Entities.Programa;
-import com.backend.backendProject.Entities.Ubicacion;
+import com.backend.backendProject.Entities.*;
+import com.backend.backendProject.Exceptions.AspiranteNoEncontradoException;
 import com.backend.backendProject.Repositories.AspiranteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AspiranteService {
-    @Autowired
-    private AspiranteRepository aspiranteRepository;
+    private final AspiranteRepository aspiranteRepository;
+    private final ProgramaService programaService;
+    private final UbicacionService ubicacionService;
+    private final EducacionService educacionService;
+    private final ContactoService contactoService;
+    private final SocioEconomiaService socioEconomiaService;
 
-    public String registrarAspirante(@RequestBody Aspirante aspirante){
-        aspirante.setNumDocumento(aspirante.getNumDocumento());
-        aspirante.setTipoDocumento(aspirante.getTipoDocumento());
-        aspirante.setNombre(aspirante.getNombre());
-        aspirante.setGenero(aspirante.getGenero());
-        aspirante.setEdad(aspirante.getEdad());
-        aspirante.setFechaNacimiento(aspirante.getFechaNacimiento());
-        aspirante.setCelular(aspirante.getCelular());
-        aspirante.setCorreo(aspirante.getCorreo());
-        aspirante.setNacionalidad(aspirante.getNacionalidad());
-        aspirante.setBootcampInfo(aspirante.getBootcampInfo());
-        aspirante.setSuma(aspirante.getSuma());
-
-        Programa aspirantePrograma = aspirante.getPrograma();
-        Programa programa = new Programa();
-        programa.setNombre(aspirantePrograma.getNombre());
-
-
-        Ubicacion aspiranteUbicacion = aspirante.getUbicacion();
-        Ubicacion ubicacion = new Ubicacion();
-        ubicacion.setDepartamento(aspiranteUbicacion.getDepartamento());
-        ubicacion.setCiudad(aspiranteUbicacion.getCiudad());
-        ubicacion.setDireccion(aspiranteUbicacion.getDireccion());
-
-        return "Saved Successfully";
+    //Inyección de dependencias a través del constructor
+    public AspiranteService(AspiranteRepository aspiranteRepository, ProgramaService programaService, UbicacionService ubicacionService, EducacionService educacionService, ContactoService contactoService, SocioEconomiaService socioEconomiaService) {
+        this.aspiranteRepository = aspiranteRepository;
+        this.programaService = programaService;
+        this.ubicacionService = ubicacionService;
+        this.educacionService = educacionService;
+        this.contactoService = contactoService;
+        this.socioEconomiaService = socioEconomiaService;
     }
 
+    //Método para traer listado de Aspirantes
+    public List<Aspirante> obtenerAspirantes(){
+        try {
+            return aspiranteRepository.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("Error al obtener la lista de aspirantes", e);
+        }
+    }
+
+    //Método para obtener Aspirante en específico
+    public Optional<Aspirante> obtenerAspiranteById(String numDocumento){
+        try {
+            Optional<Aspirante> aspirante = aspiranteRepository.findById(numDocumento);
+            if (!aspirante.isPresent()) {
+                throw new AspiranteNoEncontradoException("Aspirante con documento " + numDocumento + " no encontrado");
+            }
+            return aspirante;
+        } catch (Exception e) {
+            throw new RuntimeException("Error al obtener el aspirante con documento " + numDocumento, e);
+        }
+    }
+
+    //Método de Registro de Aspirantes
+    @Transactional
+    public ResponseEntity<String> registrarAspirante(@RequestBody Aspirante aspirante){
+        try {
+            Aspirante validAspirante = aspiranteRepository.findByCorreo(aspirante.getCorreo());
+            if (validAspirante != null){
+                throw new RuntimeException("El correo ya existe");
+            }else{
+                contactoService.guardarContacto(aspirante.getDatosContactoExterno());
+                programaService.guardarPrograma(aspirante.getPrograma());
+                ubicacionService.guardarUbicacion(aspirante.getUbicacion());
+                educacionService.guardarEducacion(aspirante.getDatosEducativos());
+                socioEconomiaService.guardarSocioeconomia(aspirante.getDatosSocioeconomia());
+
+                aspiranteRepository.save(aspirante);
+            }
+
+            return new ResponseEntity<>("Saved Successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException("An error occurred while saving the aspirante", e);
+        }
+    }
+
+    //Método para eliminar Aspirante
+    public String eliminarAspirante(@PathVariable String numDocumento){
+        try {
+            Optional<Aspirante> aspiranteEliminado = aspiranteRepository.findById(numDocumento);
+            if (!aspiranteEliminado.isPresent()) {
+                throw new AspiranteNoEncontradoException("Aspirante con documento " + numDocumento + " no encontrado");
+            }
+            aspiranteRepository.delete(aspiranteEliminado.get());
+            return "Deleted Successfully";
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar el aspirante con documento " + numDocumento, e);
+        }
+    }
 
 }
+
