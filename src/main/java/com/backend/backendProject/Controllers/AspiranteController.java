@@ -1,6 +1,7 @@
 package com.backend.backendProject.Controllers;
 
 import com.backend.backendProject.Entities.Aspirante;
+import jakarta.validation.Valid;
 import com.backend.backendProject.Services.AspiranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class AspiranteController {
 
     //Petición POST
     @PostMapping("/aspirantes")
-    public ResponseEntity<String> registrarAspirante(@RequestBody Aspirante aspirante){
+    public ResponseEntity<String> registrarAspirante(@RequestBody @Valid Aspirante aspirante){
         return aspiranteService.registrarAspirante(aspirante);
     }
 

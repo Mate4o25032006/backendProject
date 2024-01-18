@@ -71,7 +71,7 @@ public class AspiranteService {
                 aspiranteRepository.save(aspirante);
             }
 
-            return new ResponseEntity<>("Saved Successfully", HttpStatus.OK);
+            return new ResponseEntity<>("Saved Successfully", HttpStatus.CREATED);
         } catch (Exception e) {
             throw new RuntimeException("An error occurred while saving the aspirante", e);
         }

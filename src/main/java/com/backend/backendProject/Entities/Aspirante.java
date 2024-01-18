@@ -1,6 +1,9 @@
 package com.backend.backendProject.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -11,34 +14,45 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 public class Aspirante {
+    @NotNull
     @Id
     @Column(name = "num_documento", nullable = false, unique = true)
     private String numDocumento;
 
+    @NotNull
     @Column(name = "tipo_documento", nullable = false, length = 50)
     private String tipoDocumento;
 
+    @NotNull
     @Column(nullable = false, length = 50)
     private String nombre;
 
+    @NotNull
     @Column(nullable = false, length = 50)
     private String genero;
 
+    @NotNull
     @Column(nullable = false, length = 50)
     private int edad;
 
+    @NotNull
     @Column(name = "fecha_nacimiento", columnDefinition = "DATE", nullable = false)
     private LocalDate fechaNacimiento;
 
+    @NotNull
     @Column(nullable = false, length = 50)
     private String celular;
 
+    @NotBlank
+    @Email
     @Column(nullable = false, length = 60)
     private String correo;
 
+    @NotNull
     @Column(nullable = false, length = 50)
     private String nacionalidad;
 
+    @NotNull
     @Column(name = "bootcamp_info", nullable = false, length = 100)
     private String bootcampInfo;
 

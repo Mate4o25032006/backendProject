@@ -15,6 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfiguration {
+    //Provee detalles de usuarios
     @Bean
     public UserDetailsService userDetailsService(){
         UserDetails userTeo = User.withUsername("userTeo")
@@ -23,11 +24,13 @@ public class SecurityConfiguration {
         return new InMemoryUserDetailsManager(userTeo);
     }
 
+    //Encriptar Contraseñas
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(8);
     }
 
+    //Filtro de seguridad para aprobar peticiones
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf(AbstractHttpConfigurer :: disable)
