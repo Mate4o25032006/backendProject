@@ -2,11 +2,14 @@ package com.backend.backendProject.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Data
+@Validated
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,6 +21,7 @@ public class Programa {
     @Column(name = "programa_id")
     private Long programaId;
 
+    @NotBlank
     @Column(nullable = false, length = 50)
     private String nombre;
 

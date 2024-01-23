@@ -19,7 +19,7 @@ public class AspiranteController {
     //Petición GET de prueba
     @GetMapping()
     public String index(){
-        return "CONECTADO EXITOSAMENTE";
+        return "Conectado Exactamente";
     }
 
     //Endpoint para traer listado completo de Aspirantes
@@ -46,3 +46,4 @@ public class AspiranteController {
         return aspiranteService.eliminarAspirante(numDocumento);
     }
 }
+

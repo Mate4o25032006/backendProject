@@ -2,7 +2,10 @@ package com.backend.backendProject.Services;
 
 import com.backend.backendProject.Entities.*;
 import com.backend.backendProject.Exceptions.AspiranteNoEncontradoException;
+import com.backend.backendProject.Exceptions.DatabaseException;
+import com.backend.backendProject.Exceptions.InfoExistenteException;
 import com.backend.backendProject.Repositories.AspiranteRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,7 +40,7 @@ public class AspiranteService {
         try {
             return aspiranteRepository.findAll();
         } catch (Exception e) {
-            throw new RuntimeException("Error al obtener la lista de aspirantes", e);
+            throw new DatabaseException("Error al obtener la lista de aspirantes");
         }
     }
 
@@ -50,17 +53,17 @@ public class AspiranteService {
             }
             return aspirante;
         } catch (Exception e) {
-            throw new RuntimeException("Error al obtener el aspirante con documento " + numDocumento, e);
+            throw new DatabaseException("Error al obtener el aspirante con documento " + numDocumento);
         }
     }
 
     //Método de Registro de Aspirantes
     @Transactional
-    public ResponseEntity<String> registrarAspirante(@RequestBody Aspirante aspirante){
+    public ResponseEntity<String> registrarAspirante(@RequestBody @Valid Aspirante aspirante){
         try {
             Aspirante validAspirante = aspiranteRepository.findByCorreo(aspirante.getCorreo());
             if (validAspirante != null){
-                throw new RuntimeException("El correo ya existe");
+                throw new InfoExistenteException("El correo ya existe.");
             }else{
                 contactoService.guardarContacto(aspirante.getDatosContactoExterno());
                 programaService.guardarPrograma(aspirante.getPrograma());
@@ -71,9 +74,9 @@ public class AspiranteService {
                 aspiranteRepository.save(aspirante);
             }
 
-            return new ResponseEntity<>("Saved Successfully", HttpStatus.CREATED);
+            return new ResponseEntity<>("Se registró Correctamente", HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException("An error occurred while saving the aspirante", e);
+            throw new DatabaseException("Ha ocurrido un error en el registro.");
         }
     }
 
@@ -85,9 +88,9 @@ public class AspiranteService {
                 throw new AspiranteNoEncontradoException("Aspirante con documento " + numDocumento + " no encontrado");
             }
             aspiranteRepository.delete(aspiranteEliminado.get());
-            return "Deleted Successfully";
+            return "Aspirante Eliminado Correctamente";
         } catch (Exception e) {
-            throw new RuntimeException("Error al eliminar el aspirante con documento " + numDocumento, e);
+            throw new DatabaseException("Error al eliminar el aspirante con documento " + numDocumento);
         }
     }
 
