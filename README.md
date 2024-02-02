@@ -12,17 +12,25 @@ Java Versión 17.
 ```
 
 ```
-Maven
+Maven.
 ```
 
 ```
-MySQL
+MySQL.
 ```
+
+## Ejecutando las pruebas ⚙️
+
+_Para ejecutar pruebas se usan las siguientes herramientas_
+
+* [Postman](https://www.postman.com) - Pruebas API
+* [jUnit](https://junit.org/junit5/) - El framework para pruebas Unitarias
 
 ## Construido con 🛠️
 
 _Las siguientes herramientas fueron implementadas dentro de este módulo:
 
+* [Java](https://www.java.com/es/) - Lenguaje de Programación
 * [Spring](https://spring.io/) - El framework web usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [MySQL](https://www.mysql.com/) - Usado como Base de datos Relacional
@@ -30,6 +38,6 @@ _Las siguientes herramientas fueron implementadas dentro de este módulo:
 
 ## Autores ✒️
 
-* **Saray Perez** - *Pruebas Unitarias y Documentación* - [villanuevand](https://github.com/villanuevand)
-* **Santiago Vargas** - *Seguridad y Documentación* - [fulanitodetal](#fulanito-de-tal)
-* **Mateo Espinosa** - *Lógica del Negocio* - [fulanitodetal](#fulanito-de-tal)
+* **Saray Perez** - *Pruebas Unitarias y Documentación* - [sarayy5](https://github.com/sarayy5)
+* **Santiago Vargas** - *Seguridad y Documentación* - [SantiagoV25](https://github.com/SantiagoV25)
+* **Mateo Espinosa** - *Lógica del Negocio* - [Mate4o25032006](https://github.com/Mate4o25032006)
