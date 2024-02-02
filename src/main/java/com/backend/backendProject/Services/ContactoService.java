@@ -14,6 +14,6 @@ public class ContactoService {
 
     public String guardarContacto(@RequestBody Contacto contacto){
         contactoRepository.save(contacto);
-        return "Contact Saved Successfully";
+        return "Contacto Guardado Exitosamente";
     }
 }

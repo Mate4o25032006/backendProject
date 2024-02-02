@@ -34,7 +34,7 @@ public class AspiranteController {
         return aspiranteService.obtenerAspiranteById(numDocumento);
     }
 
-    //Petición POST
+    //Petición POST para registrar Aspirantes
     @PostMapping("/aspirantes")
     public ResponseEntity<String> registrarAspirante(@RequestBody @Valid Aspirante aspirante){
         return aspiranteService.registrarAspirante(aspirante);

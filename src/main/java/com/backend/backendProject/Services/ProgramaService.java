@@ -14,6 +14,6 @@ public class ProgramaService {
 
     public String guardarPrograma(@RequestBody Programa programa){
         programaRepository.save(programa);
-        return "Program Saved Successfully";
+        return "Programa Guardado Exitosamente";
     }
 }

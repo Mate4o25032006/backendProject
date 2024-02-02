@@ -1,5 +1,6 @@
 package com.backend.backendProject.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +18,8 @@ public class Usuario {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @Column(nullable = false, length = 60)
-    private String contrasenia;
+    @Column(name = "password", nullable = false, length = 60)
+    private String password;
 
     //VARIOS usuarios poseen UN Rol
     @ManyToOne(targetEntity = Rol.class)

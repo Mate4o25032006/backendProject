@@ -14,6 +14,6 @@ public class EducacionService {
 
     public String guardarEducacion(@RequestBody Educacion educacion){
         educacionRepository.save(educacion);
-        return "Education Saved Successfully";
+        return "Educación Guardada Exitosamente";
     }
 }

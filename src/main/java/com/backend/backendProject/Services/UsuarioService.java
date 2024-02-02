@@ -34,7 +34,7 @@ public class UsuarioService {
                 throw new InfoExistenteException("El correo ya existe.");
             }else{
                 usuario.setEmail(usuario.getEmail());
-                usuario.setContrasenia(passwordEncoder.encode(usuario.getContrasenia()));
+                usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
                 rolService.registrarRol(usuario.getRol());
 
                 usuarioRepository.save(usuario);

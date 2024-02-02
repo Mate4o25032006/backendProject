@@ -13,6 +13,7 @@ public class RolService {
         this.rolRepository = rolRepository;
     }
 
+    //Método para registrar Rol
     public String registrarRol(@RequestBody Rol rol) {
         rolRepository.save(rol);
         return "Rol Saved Successfully";

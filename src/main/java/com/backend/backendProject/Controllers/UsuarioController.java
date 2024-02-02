@@ -1,6 +1,5 @@
-/*package com.backend.backendProject.Controllers;
+package com.backend.backendProject.Controllers;
 
-import com.backend.backendProject.Entities.Aspirante;
 import com.backend.backendProject.Entities.Usuario;
 import com.backend.backendProject.Services.UsuarioService;
 import jakarta.validation.Valid;
@@ -9,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/user")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
@@ -22,8 +21,8 @@ public class UsuarioController {
 
     //Petición POST
     @PostMapping("/usuarios")
-    public ResponseEntity<String> registrarAspirante(@RequestBody @Valid Usuario usuario){
+    public ResponseEntity<String> guardarUsuario(@RequestBody @Valid Usuario usuario){
         return usuarioService.guardarUsuario(usuario);
     }
 }
-*/
+

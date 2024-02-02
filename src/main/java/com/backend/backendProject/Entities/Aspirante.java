@@ -91,4 +91,8 @@ public class Aspirante {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "socioeconomico_id")
     private SocioEconomia datosSocioeconomia;
+
+    //Columna con dato para recuperar resultados de evaluación
+    @Column(name = "testtaker_id", nullable = false, unique = true)
+    private int testtakerId;
 }

@@ -14,6 +14,6 @@ public class SocioEconomiaService {
 
     public String guardarSocioeconomia(@RequestBody SocioEconomia socioEconomia){
         socioeconomiaRepository.save(socioEconomia);
-        return "Socioeconomia Saved Successfully";
+        return "Socioeconomia Guardada Exitosamente";
     }
 }

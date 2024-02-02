@@ -13,6 +13,6 @@ public class UbicacionService {
 
     public String guardarUbicacion(@RequestBody Ubicacion ubicacion){
         ubicacionRepository.save(ubicacion);
-        return "Ubication Saved Successfully";
+        return "Ubicación Guardada Exitosamente";
     }
 }
