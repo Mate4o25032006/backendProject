@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import com.backend.backendProject.Services.AspiranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,26 +25,28 @@ public class AspiranteController {
 
     //Endpoint para traer listado completo de Aspirantes
     @GetMapping("/aspirantes")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Aspirante> obtenerAspirantes(){
         return aspiranteService.obtenerAspirantes();
     }
 
     //Endpoint para traer un Aspirante específico
     @GetMapping("/aspirantes/{numDocumento}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Optional<Aspirante> obtenerAspiranteById(@PathVariable("numDocumento") String numDocumento){
         return aspiranteService.obtenerAspiranteById(numDocumento);
     }
 
-    //Petición POST para registrar Aspirantes
-    @PostMapping("/aspirantes")
+    //Petición POST
+    @PostMapping("/registroaspirantes")
     public ResponseEntity<String> registrarAspirante(@RequestBody @Valid Aspirante aspirante){
         return aspiranteService.registrarAspirante(aspirante);
     }
 
     //Petición DELETE
     @DeleteMapping("/aspirantes/{numDocumento}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String eliminarAspirante(@PathVariable("numDocumento") String numDocumento){
         return aspiranteService.eliminarAspirante(numDocumento);
     }
 }
-
