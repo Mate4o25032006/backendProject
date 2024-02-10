@@ -12,7 +12,7 @@
 	<artifactId>backendProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>backendProject</name>
-	<description>Final project Backend Makaia</description>
+	<description>Final-project-Backend-Makaia</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
