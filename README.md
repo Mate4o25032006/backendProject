@@ -41,3 +41,8 @@ _Las siguientes herramientas fueron implementadas dentro de este módulo:
 * **Saray Perez** - *Pruebas Unitarias y Documentación* - [Saraypereez](https://github.com/Saraypereez)
 * **Santiago Vargas** - *Seguridad y Documentación* - [SantiagoV25](https://github.com/SantiagoV25)
 * **Mateo Espinosa** - *Lógica del Negocio* - [Mate4o25032006](https://github.com/Mate4o25032006)
+
+
+## Modelo Entidad/Relación 📈
+
+![Modelo](/Diagramas/MER.png)
