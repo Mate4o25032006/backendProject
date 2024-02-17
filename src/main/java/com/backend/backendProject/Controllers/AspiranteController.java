@@ -20,7 +20,7 @@ public class AspiranteController {
     //Petición GET de prueba
     @GetMapping()
     public String index(){
-        return "Conectado Exactamente";
+        return "Conectado Exitosamente";
     }
 
     //Endpoint para traer listado completo de Aspirantes
