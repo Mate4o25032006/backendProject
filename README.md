@@ -42,6 +42,9 @@ _Las siguientes herramientas fueron implementadas dentro de este módulo:
 * **Santiago Vargas** - *Seguridad y Documentación* - [SantiagoV25](https://github.com/SantiagoV25)
 * **Mateo Espinosa** - *Lógica del Negocio* - [Mate4o25032006](https://github.com/Mate4o25032006)
 
+## Diagrama de Procesos 📈
+
+![Procesos](/Diagramas/Diagrama%20Procesos.png)
 
 ## Modelo Entidad/Relación 📈
 
