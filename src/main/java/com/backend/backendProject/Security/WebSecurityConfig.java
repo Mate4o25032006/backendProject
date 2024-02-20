@@ -73,7 +73,7 @@ public class WebSecurityConfig  {
                                 .requestMatchers("/api/v1/**").permitAll()
                                 .requestMatchers("/api/v1/registroaspirantes").permitAll()
                                 .requestMatchers( "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
                 );
 
         // fix H2 database console: Refused to display ' in a frame because it set 'X-Frame-Options' to 'deny'
