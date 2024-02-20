@@ -93,45 +93,45 @@ Ejemplo de solicitud:
 
 ```java 
 {
-    "numDocumento": "31209431",
-    "tipoDocumento": "Cédula",
-    "nombre": "Saray Perez",
-    "genero": "F",
-    "edad": 22,
-    "fechaNacimiento": "2002-01-01",
-    "celular": "3112678321",
-    "correo": "saray123",
-    "nacionalidad": "Colombiana",
-    "bootcampInfo": "Internet",
-    "organizacion": "Ninguna",
-    "suma": 11,
+    "numDocumento": String,
+    "tipoDocumento": String,
+    "nombre": String,
+    "genero": String,
+    "edad": Integer,
+    "fechaNacimiento": Date,
+    "celular": String,
+    "correo": String,
+    "nacionalidad": String,
+    "bootcampInfo": String,
+    "organizacion": String,
+    "suma": Integer,
     "programa": {
-        "nombre": "Desarollo Backend"
+        "nombre": String
     },
     "ubicacion": {
-        "departamento": "Antioquia",
-        "ciudad": "Turbo",
-        "direccion": "Calle 23"
+        "departamento": String,
+        "ciudad": String,
+        "direccion": String
     },
     "datosEducativos": {
-        "ultimoTitulo": "Universitario",
-        "empleoActual": "Ingeniera",
-        "nivelEducativo": "Universitario"
+        "ultimoTitulo": String,
+        "empleoActual": String,
+        "nivelEducativo": String
     },
     "datosContactoExterno": {
-        "nombre": "Manuela Montes",
-        "telefono": "3105422118",
-        "correo": "manuMon@gmail.com"
+        "nombre": String,
+        "telefono": String,
+        "correo": String
     },
     "datosSocioeconomia": {
-        "estrato": 2,
-        "etnia": "No aplica",
-        "discapacidad": "Ninguna",
-        "poblacion": "No aplica",
-        "Salario": 2300000,
-        "ocupacion": "Ingeniera"
+        "estrato": Integer,
+        "etnia": String,
+        "discapacidad": String,
+        "poblacion": String,
+        "Salario": Integer,
+        "ocupacion": String
     },
-    "testtakerId": 1541
+    "testtakerId": Integer
 }
 ```
 
