@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 
         ,
         servers = {
-                @Server(url="https://backendproject-production-6d25.up.railway.app//",description="Servidor de Producción"),
+                @Server(url="https://backendproject-production-6d25.up.railway.app/",description="Servidor de Producción"),
                 @Server(url = "http://localhost:8081/", description = "Servidor local")
         }
 )
