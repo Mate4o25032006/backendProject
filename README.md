@@ -21,7 +21,7 @@ MySQL.
 
 ## Ejecutando las pruebas ⚙️
 
-_Para ejecutar pruebas se usan las siguientes herramientas_
+Para ejecutar pruebas se usan las siguientes herramientas_
 
 * [Postman](https://www.postman.com) - Pruebas API
 * [jUnit](https://junit.org/junit5/) - El framework para pruebas Unitarias
@@ -44,6 +44,7 @@ Las principales dependencias utilizadas son : 👩‍💻
 - JUnit y Mockito (Testeo de pruebas unitarias)
 - Swagger (Documentación de la API)
 
+#### :eyes: :link:[ Link a documentación en Swagger - Mensajeria de paquetes](https://backendproject-production-6d25.up.railway.app/swagger-ui/index.html)
 
 ## Autores ✒️
 
