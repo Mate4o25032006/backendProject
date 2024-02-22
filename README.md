@@ -44,7 +44,9 @@ Las principales dependencias utilizadas son : 👩‍💻
 - JUnit y Mockito (Testeo de pruebas unitarias)
 - Swagger (Documentación de la API)
 
-#### :eyes: :link:[ Link a documentación en Swagger - Mensajeria de paquetes](https://backendproject-production-6d25.up.railway.app/swagger-ui/index.html)
+
+Adicionalmente esta API se encuentra documentada con Swagger y podrá probar la funcionalidad de  cada una de las clases en los Endpoints disponibles en el siguiente link: 
+#### :eyes: :link:[ Link a documentación en Swagger - API Módulo Registro](https://backendproject-production-6d25.up.railway.app/swagger-ui/index.html)
 
 ## Autores ✒️
 
