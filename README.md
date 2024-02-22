@@ -50,7 +50,7 @@ Adicionalmente esta API se encuentra documentada con Swagger y podrá probar la 
 
 ## Autores ✒️
 
-* **Saray Perez** - *Pruebas Unitarias y Documentación* - [Saraypereez](https://github.com/Saraypereez)
+* **Saray Perez** - *Pruebas Unitarias y Desarrollo* - [Saraypereez](https://github.com/Saraypereez)
 * **Santiago Vargas** - *Seguridad y Documentación* - [SantiagoV25](https://github.com/SantiagoV25)
 * **Mateo Espinosa** - *Lógica del Negocio* - [Mate4o25032006](https://github.com/Mate4o25032006)
 
